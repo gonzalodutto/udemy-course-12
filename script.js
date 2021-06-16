@@ -339,6 +339,7 @@ console.log(+(2.345).toFixed(2));
 //////////////////////////////////////////
 // 170. The Remainder Operator
 
+/*
 console.log(5 % 2);
 console.log(5 / 2); // 5 = 2 * 2 + 1
 
@@ -364,6 +365,38 @@ labelBalance.addEventListener('click', function () {
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
+*/
 
 //////////////////////////////////////////
 // 171. Working with BigInt
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+console.log(65416541654632516546546541654654765466546n);
+console.log(BigInt(65416541654632516546546541654654765466546)); // No funciona
+
+// Operations
+console.log(10000n + 10000n);
+console.log(6546516546546516541654654651n * 100000n);
+// console.log(Math.sqrt(16n)); // No funciona
+
+const huge = 65416546516546416165n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+// Exceptions
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == '20');
+
+console.log(huge + ' is REALLY big!!!');
+
+// Divisions
+console.log(10n / 3n);
+console.log(10 / 3);
