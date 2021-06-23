@@ -274,14 +274,14 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movement
+    setTimeout(function() {// Add movement
     currentAccount.movements.push(amount);
 
     // Add loan date
     currentAccount.movementsDates.push(new Date().toISOString());
 
     // Update UI
-    updateUI(currentAccount);
+    updateUI(currentAccount);}, 2500);
   }
   inputLoanAmount.value = '';
 });
@@ -536,6 +536,7 @@ console.log(days1);
 //////////////////////////////////////////
 // 176. Internationalizing Numbers (Intl)
 
+/*
 const num = 35654684.23;
 
 const options = {
@@ -549,3 +550,26 @@ console.log('US:      ', new Intl.NumberFormat('en-US', options).format(num));
 console.log('Germany: ', new Intl.NumberFormat('de-DE', options).format(num));
 console.log('Syria:   ', new Intl.NumberFormat('ar-SY', options).format(num));
 console.log(locale, ':  ', new Intl.NumberFormat(locale, options).format(num));
+*/
+
+//////////////////////////////////////////
+// 177. Timers: setTimeout and setInterval
+
+// setTimeout
+const ingredients = ['olives', 'spinach'];
+
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2} 🍕`), 
+  3000, 
+  ...ingredients
+);
+
+console.log('Waiting....');
+
+if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+
+// setInterval
+setInterval(function() {
+  const now = new Date();
+  console.log(now);
+}, 1000);
